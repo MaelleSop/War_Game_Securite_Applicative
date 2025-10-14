@@ -1,0 +1,44 @@
+/* styles.css simple */
+body { 
+    font-family: Arial, sans-serif; 
+    margin: 0; 
+    padding: 0; 
+    background: #f7f7f7; 
+    color: #222; 
+}
+
+header { 
+    background: #8b0000; 
+    color: white; 
+    padding: 16px; 
+}
+
+main { 
+    padding: 20px; 
+    max-width: 900px; 
+    margin: 0 auto; 
+}
+
+h1,h2 { 
+    margin: 0 0 12px 0; 
+}
+
+section { 
+    background: white; 
+    padding: 12px; 
+    margin-bottom: 12px; 
+    border-radius: 6px; 
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05); 
+}
+
+footer { 
+    text-align:center; 
+    padding: 12px; 
+    font-size: 0.9rem; 
+    color: #666;
+}
+
+a { 
+    color:#8b0000; 
+    text-decoration:none; 
+}
