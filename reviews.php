@@ -40,7 +40,7 @@ $rows = $db->query("SELECT id, name, message, photo, created_at FROM reviews ORD
 <head>
   <meta charset="utf-8">
   <title>Avis - Chez Demo</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header><h1>Avis des clients</h1></header>

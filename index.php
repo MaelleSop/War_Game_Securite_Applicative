@@ -6,7 +6,7 @@ require_once 'config.php';
 <head>
   <meta charset="utf-8">
   <title>Chez Demo - Restaurant</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header><h1>Chez Demo</h1></header>
@@ -30,6 +30,7 @@ require_once 'config.php';
       <a href="reviews.php">Laisser un avis / Voir les avis</a>
     </section>
   </main>
+
   <footer>
     <p>&copy; Chez Demo</p>
   </footer>
