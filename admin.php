@@ -18,7 +18,9 @@ if (isset($_POST['user']) && isset($_POST['pass'])) {
     //$stmt->execute([':u' => $_POST['user']]);
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    if ($user && password_verify($_POST['pass'], $user['passhash']) && $user['role'] === 'admin') {
+    var_dump($user);
+
+    if ($user && $_POST['pass'] === $user['passhash'] && $user['role'] === 'admin') {
         $_SESSION['is_admin'] = true;
         $_SESSION['username'] = $_POST['user'];
         header('Location: admin.php');
