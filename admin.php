@@ -13,7 +13,8 @@ try {
 
 //Gestion de la connexion
 if (isset($_POST['user']) && isset($_POST['pass'])) {
-    $stmt = $db->query("SELECT passhash, role FROM users WHERE username = {$_POST['user']}");
+    $sqluser = $_POST['user'];
+    $stmt = $db->query("SELECT passhash, role FROM users WHERE username = '$sqluser';");
     //$stmt->execute([':u' => $_POST['user']]);
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
