@@ -14,13 +14,11 @@ try {
 //Gestion de la connexion
 if (isset($_POST['user']) && isset($_POST['pass'])) {
     $sqluser = $_POST['user'];
-    $stmt = $db->query("SELECT passhash, role FROM users WHERE username = '$sqluser';");
-    //$stmt->execute([':u' => $_POST['user']]);
+    $sqlpass = $_POST['pass'];
+    $stmt = $db->query("SELECT * FROM users WHERE username = '$sqluser' AND passhash = '$sqlpass';");
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    var_dump($user);
-
-    if ($user && $_POST['pass'] === $user['passhash'] && $user['role'] === 'admin') {
+    if ($user) {
         $_SESSION['is_admin'] = true;
         $_SESSION['username'] = $_POST['user'];
         header('Location: admin.php');
