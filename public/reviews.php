@@ -1,5 +1,5 @@
 <?php
-require_once 'config.php';
+require_once '../config/config.php';
 
 // open DB
 $db = new PDO('sqlite:' . DB_FILE);

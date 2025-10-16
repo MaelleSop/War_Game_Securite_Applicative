@@ -1,5 +1,5 @@
 <?php
-require_once 'config.php';
+require_once '../config/config.php';
 ?>
 <!doctype html>
 <html lang="fr">

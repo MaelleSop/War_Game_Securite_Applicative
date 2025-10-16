@@ -1,5 +1,5 @@
 <?php
-require_once 'config.php';
+require_once '../config/config.php';
 
 // Création du dossier data s’il n’existe pas
 $dbdir = dirname(DB_FILE);
