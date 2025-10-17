@@ -9,7 +9,7 @@ chown -R www-data:www-data /var/www/html/data
 # Initialiser la base de données si elle n'existe pas
 if [ ! -f /var/www/html/data/database.sqlite ]; then
     echo "Initialisation de la base de données..."
-    php /var/www/html/init_db.php
+    php /var/www/html/html/init_db.php
     echo "Base de données initialisée ✅"
 fi
 
