@@ -44,8 +44,11 @@ if (empty($_SESSION['is_admin'])):
 <head>
     <meta charset="utf-8">
     <title>Admin - Connexion</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <header><h1>La Cantine</h1></header>
+
     <h1>Connexion admin</h1>
     <?php if (!empty($error)) echo "<p style='color:red;'>$error</p>"; ?>
     <form method="post">
@@ -54,6 +57,13 @@ if (empty($_SESSION['is_admin'])):
         <button type="submit">Connexion</button>
     </form>
     <br>
+
+    <footer>
+        <p>&copy; La Cantine</p>
+        <p><a href="admin.php">Espace admin</a></p>
+    </footer>
+    </div>
+
 </body>
 </html>
 <?php
