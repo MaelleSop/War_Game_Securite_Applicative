@@ -2,8 +2,9 @@
 set -e
 
 # Donner les droits à Apache pour le dossier uploads
-chown -R www-data:www-data /var/www/html/uploads
-chmod -R 775 /var/www/html/uploads
+mkdir -p /var/www/html/data || true
+chmod -R 777 /var/www/html/data
+chown -R www-data:www-data /var/www/html/data || true
 
 # Initialiser la base de données si elle n'existe pas
 if [ ! -f /var/www/html/uploads/database.sqlite ]; then
