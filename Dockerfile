@@ -1,24 +1,29 @@
-# Étape 1 : Construction de l'image
+# Construction de l'image
 FROM php:8.1-apache
 
-# Étape 2 : Installation de SQLite
+# Installation de SQLite
 RUN apt-get update && apt-get install -y sqlite3 libsqlite3-dev
 
-# Étape 3 : Activation du module Apache pour PHP
+# Activation du module Apache pour PHP
 RUN docker-php-ext-install pdo pdo_sqlite
 
-# Étape 4 : Copie du code source dans le conteneur
+# Copie du code source dans le conteneur
 COPY . /var/www/html/
 
-# Etape 5 : Copier le script d'entrée
+# Créer le dossier data et donner les droits à www-data
+RUN mkdir -p /var/www/html/data \
+    && chown -R www-data:www-data /var/www/html/data \
+    && chmod -R 775 /var/www/html/dat
+
+# Copier le script d'entrée
 COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 
-# Étape 6 : Attribution des droits appropriés
+# Attribution des droits appropriés
 RUN chown -R www-data:www-data /var/www/html/
 
-# Étape 7 : Exposition du port 80
+# Exposition du port 80
 EXPOSE 80
 
-# Etape 8 : Utiliser ce script comme point d'entrée
+# Utiliser ce script comme point d'entrée
 ENTRYPOINT ["/entrypoint.sh"]
