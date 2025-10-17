@@ -60,7 +60,7 @@ if (empty($_SESSION['is_admin'])):
 
     <footer>
         <p>&copy; La Cantine</p>
-        <p><a href="admin.php">Espace admin</a></p>
+        <p><a href="index.php">Retour</a></p>
     </footer>
     </div>
 
