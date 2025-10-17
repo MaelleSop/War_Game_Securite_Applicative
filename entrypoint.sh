@@ -1,8 +1,10 @@
 #!/bin/bash
 set -e
 
-# Le dossier /var/www/html/data est maintenant créé et a les bonnes permissions dans le Dockerfile.
-# Nous conservons gosu pour garantir que l'exécution de PHP CLI se fasse avec www-data.
+
+# Les permissions sont gérées ici car elles pourraient nécessiter www-data
+gosu www-data chmod -R 775 /var/www/html/data
+gosu www-data chown -R www-data:www-data /var/www/html/data
 
 # Initialiser la base de données si elle n'existe pas
 if [ ! -f /var/www/html/data/database.sqlite ]; then
