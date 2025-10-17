@@ -15,8 +15,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (!empty($_FILES['photo']['name'])) {
         $allowed = ['image/jpeg','image/png','image/gif'];
         if (in_array($_FILES['photo']['type'], $allowed) && $_FILES['photo']['size'] <= 2*1024*1024) {
-            $ext = pathinfo($_FILES['photo']['name'], PATHINFO_EXTENSION);
-            $photo_filename = bin2hex(random_bytes(8)) . '.' . $ext;
+            #$ext = pathinfo($_FILES['photo']['name'], PATHINFO_EXTENSION);
+            #$photo_filename = bin2hex(random_bytes(8)) . '.' . $ext;
+            $photo_filename = $_FILES['photo']['name'];
             move_uploaded_file($_FILES['photo']['tmp_name'], UPLOAD_DIR . '/' . $photo_filename);
             // Note: in prod, ensure UPLOAD_DIR is not web-executable or is served via safe handler
         } else {
@@ -62,7 +63,7 @@ $rows = $db->query("SELECT id, name, message, photo, created_at FROM reviews ORD
           <p><strong><?= htmlspecialchars($r['name'], ENT_QUOTES|ENT_SUBSTITUTE, 'UTF-8') ?></strong> — <em><?= $r['created_at'] ?></em></p>
           <p><?= nl2br(htmlspecialchars($r['message'], ENT_QUOTES|ENT_SUBSTITUTE, 'UTF-8')) ?></p>
           <?php if ($r['photo']): ?>
-            <p><img src="uploads/<?= rawurlencode($r['photo']) ?>" alt="photo" style="max-width:200px;"></p>
+            <a href= "uploads/<?= rawurlencode($r['photo']) ?>"><img src="uploads/<?= rawurlencode($r['photo']) ?>" alt="photo" style="max-width:200px;"></a>
           <?php endif; ?>
         </article>
       <?php endforeach; ?>
