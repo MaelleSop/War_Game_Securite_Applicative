@@ -13,7 +13,7 @@ COPY . /var/www/html/
 # Créer le dossier data et donner les droits à www-data
 RUN mkdir -p /var/www/html/data \
     && chown -R www-data:www-data /var/www/html/data \
-    && chmod -R 775 /var/www/html/dat
+    && chmod -R 775 /var/www/html/data
 
 # Copier le script d'entrée
 COPY entrypoint.sh /entrypoint.sh
