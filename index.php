@@ -5,20 +5,20 @@ require_once 'config.php';
 <html lang="fr">
 <head>
   <meta charset="utf-8">
-  <title>Chez Demo - Restaurant</title>
+  <title>La Cantine - Restaurant</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header><h1>Chez Demo</h1></header>
+  <header><h1>La Cantine</h1></header>
   <main>
     <section id="description">
       <h2>Bienvenue</h2>
-      <p>Chez Demo est un restaurant familial proposant cuisine française de saison.</p>
-      <p>Adresse : 10 Rue Exemple, 75000 Paris</p>
+      <p>La Cantine est un restaurant familial proposant cuisine française de saison.</p>
+      <p>Adresse : 10 Rue Tralala, 75000 Paris</p>
     </section>
 
     <section id="menu">
-      <h2>La carte</h2>
+      <h2>La carte du jour</h2>
       <ul>
         <li>Entrée: Soupe à l'oignon — 8€</li>
         <li>Plat: Confit de canard — 18€</li>
@@ -32,7 +32,7 @@ require_once 'config.php';
   </main>
 
   <footer>
-    <p>&copy; Chez Demo</p>
+    <p>&copy; La Cantine</p>
   </footer>
 </body>
 </html>
