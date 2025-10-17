@@ -24,14 +24,29 @@ Volumes : code source monté en volume, volume persistant pour la base de donné
 
 Port exposé par défaut : 8080:80
 
-## Récupération de l'image Docker
-L'image Docker est disponible à la récupération avec la commande suivante :
+## Installation et Utilisation
+L'application est entièrement compilée pour être utilisée avec Docker en un seul conteneur. Pour lancer l'application, il suffit d'effectuer les étapes suivantes :
 
-## Installation
-L'application est entièrement compilée pour être utilisée avec Docker en un seul conteneur. Pour lancer l'application, il suffit d'effectuer la commande suivante :
+Cloner le projet depuis GitHub
 
-## Utilisation
-L'application est accessible à l'adresse suivante : 
+```
+git clone https://github.com/MaelleSop/War_Game_Securite_Applicative.git
+cd War_Game_Securite_Applicative
+```
+
+Copier exempleconfig.php dans config.php (le nom de fichier doit être config.php, auquel cas l'application ne fonctionnera pas)
+
+```
+cp exempleconfig.php config.php
+```
+
+Lancer l'application avec Docker
+
+```
+docker compose up --build
+```
+
+Vous pouvez ensuite accéder à l'application via [http://localhost:8080](http://localhost:8080)
 
 
 
