@@ -33,6 +33,7 @@ require_once 'config.php';
 
   <footer>
     <p>&copy; La Cantine</p>
+    <p><a href="admin.php">Espace admin</a></p>
   </footer>
 </body>
 </html>

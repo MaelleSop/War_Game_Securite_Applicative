@@ -1,5 +1,5 @@
 <?php
-require_once '../config.php';
+require_once 'config.php';
 session_start();
 
 
@@ -54,7 +54,6 @@ if (empty($_SESSION['is_admin'])):
         <button type="submit">Connexion</button>
     </form>
     <br>
-    <h3>Flag : l€Fl@gd€SSRFOu@IsOu@IsbI€nJou€ </h3>
 </body>
 </html>
 <?php
