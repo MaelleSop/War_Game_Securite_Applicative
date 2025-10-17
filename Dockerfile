@@ -10,17 +10,13 @@ RUN docker-php-ext-install pdo pdo_sqlite
 # Copie du code source dans le conteneur
 COPY . /var/www/html/
 
-# Créer le dossier data et donner les droits à www-data
-RUN mkdir -p /var/www/html/data \
-    && chown -R www-data:www-data /var/www/html/data \
-    && chmod -R 775 /var/www/html/data
-
 # Copier le script d'entrée
 COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 
-# Attribution des droits appropriés
-RUN chown -R www-data:www-data /var/www/html/
+# Donner les droits à Apache sur le code source
+RUN chown -R www-data:www-data /var/www/html/ \
+    && chmod -R 755 /var/www/html/
 
 # Exposition du port 80
 EXPOSE 80

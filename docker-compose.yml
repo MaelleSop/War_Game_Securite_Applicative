@@ -1,11 +1,10 @@
 services:
   web:
     build: .
-    user: www-data
     ports:
       - "8080:80"
     volumes:
-      - .:/var/www/html
+      - ./html:/var/www/html
       - db_data:/var/www/html/uploads
     networks:
       - app-network
