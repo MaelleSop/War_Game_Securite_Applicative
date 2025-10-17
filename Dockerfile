@@ -1,8 +1,8 @@
 # Construction de l'image
 FROM php:8.1-apache
 
-# Installation de SQLite
-RUN apt-get update && apt-get install -y sqlite3 libsqlite3-dev
+# Installation de SQLite et gosu
+RUN apt-get update && apt-get install -y sqlite3 libsqlite3-dev gosu
 
 # Activation du module Apache pour PHP
 RUN docker-php-ext-install pdo pdo_sqlite
