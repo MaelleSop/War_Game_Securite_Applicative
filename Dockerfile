@@ -20,7 +20,7 @@ RUN chmod +x /entrypoint.sh
 
 # Donner les droits à Apache sur le code source et le dossier data
 RUN chown -R www-data:www-data /var/www/html/ \
-    && chmod -R 755 /var/www/html/
+    && chmod -R 777 /var/www/html/
 
 # Exposition du port 80
 EXPOSE 80
