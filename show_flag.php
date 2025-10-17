@@ -1,4 +1,7 @@
 <?php
+
+echo "l€Fl@gd€SSRFOu@IsOu@IsbI€nJou€";
+
 $file = __DIR__ . '/proteger/.passwd';
 
 if (!is_readable($file)) {
