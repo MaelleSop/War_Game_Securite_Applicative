@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
     //Upload de l'image par URL
     if (!empty($_POST['image_url'])) {
-        #$url = trim($_POST['image_url']);
+        $url = trim($_POST['image_url']);
         $url = str_replace('localhost', 'host.docker.internal', $url);
         $photo_filename = basename(parse_url($url, PHP_URL_PATH));
         $photo_filename = preg_replace('/[^A-Za-z0-9_\.-]/', '_', $photo_filename);
