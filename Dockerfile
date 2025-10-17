@@ -10,11 +10,15 @@ RUN docker-php-ext-install pdo pdo_sqlite
 # Étape 4 : Copie du code source dans le conteneur
 COPY . /var/www/html/
 
-# Étape 5 : Attribution des droits appropriés
+# Etape 5 : Copier le script d'entrée
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+
+# Étape 6 : Attribution des droits appropriés
 RUN chown -R www-data:www-data /var/www/html/
 
-# Étape 6 : Exposition du port 80
+# Étape 7 : Exposition du port 80
 EXPOSE 80
 
-# Étape 7 : Commande par défaut pour démarrer Apache
-CMD ["apache2-foreground"]
+# Etape 8 : Utiliser ce script comme point d'entrée
+ENTRYPOINT ["/entrypoint.sh"]
