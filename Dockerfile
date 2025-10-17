@@ -13,7 +13,7 @@ RUN mkdir -p /var/www/html/data
 
 # Étape 5 : Donner les bons droits à Apache (www-data)
 RUN chown -R www-data:www-data /var/www/html && \
-    chmod -R 775 /var/www/html
+    chmod -R 777 /var/www/html
 
 # Étape 6 : Activer mod_rewrite (si nécessaire pour ton appli)
 RUN a2enmod rewrite
