@@ -1,6 +1,7 @@
 services:
   web:
     build: .
+    user: www-data
     ports:
       - "8080:80"
     volumes:
@@ -15,3 +16,4 @@ volumes:
 networks:
   app-network:
     driver: bridge
+
