@@ -2,7 +2,7 @@
 FROM php:8.2-apache
 
 # Étape 2 : Installer les extensions nécessaires (SQLite, PDO, MySQL si besoin)
-RUN docker-php-ext-install pdo pdo_sqlite
+RUN docker-php-ext-install mysqli pdo pdo_mysql
 
 # Étape 3 : Définir le dossier de travail et copier le projet
 WORKDIR /var/www/html
@@ -13,7 +13,7 @@ RUN mkdir -p /var/www/html/data
 
 # Étape 5 : Donner les bons droits à Apache (www-data)
 RUN chown -R www-data:www-data /var/www/html && \
-    chmod -R 777 /var/www/html
+    chmod -R 775 /var/www/html
 
 # Étape 6 : Activer mod_rewrite (si nécessaire pour ton appli)
 RUN a2enmod rewrite
