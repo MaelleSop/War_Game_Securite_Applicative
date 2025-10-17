@@ -43,7 +43,13 @@ cp exempleconfig.php config.php
 Lancer l'application avec Docker
 
 ```
-docker compose up --build
+docker compose up -d --build
+```
+
+Donner les droits nécessaires sur le host
+
+```
+sudo chmod -R 777 .
 ```
 
 Vous pouvez ensuite accéder à l'application via [http://localhost:8080](http://localhost:8080)
