@@ -1,6 +1,6 @@
 <?php
 
-echo "l€Fl@gd€SSRFOu@IsOu@IsbI€nJou€";
+
 
 $file = __DIR__ . '/proteger/.passwd';
 
@@ -17,3 +17,11 @@ header('Pragma: no-cache');
 
 readfile($file);
 exit;
+
+?>
+
+<!doctype html>
+<html lang="fr">
+<div> 
+    <p>l€Fl@gd€SSRFOu@IsOu@IsbI€nJou€</p>
+</div>
