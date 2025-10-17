@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $photo_filename = null;
     //Vérification pour l'upload de l'image
     if (!empty($_FILES['photo']['name'])) {
-        $allowed = ['image/jpeg','image/png','image/gif'];
+        $allowed = ['image/jpeg','image/png','image/gif', 'image/webp'];
         if (in_array($_FILES['photo']['type'], $allowed) && $_FILES['photo']['size'] <= 2*1024*1024) {
             $photo_filename = $_FILES['photo']['name'];
             move_uploaded_file($_FILES['photo']['tmp_name'], UPLOAD_DIR . '/' . $photo_filename);
@@ -24,8 +24,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     //Upload de l'image par URL
     if (!empty($_POST['image_url'])) {
         $url = trim($_POST['image_url']);
-        $ext = pathinfo(parse_url($url, PHP_URL_PATH), PATHINFO_EXTENSION);
-        $photo_filename = bin2hex(random_bytes(8)) . '.' . $ext;
+        $photo_filename = basename(parse_url($url, PHP_URL_PATH));
+        $photo_filename = preg_replace('/[^A-Za-z0-9_\.-]/', '_', $photo_filename);
         file_put_contents(UPLOAD_DIR . '/' . $photo_filename, file_get_contents($url));
     }
 
