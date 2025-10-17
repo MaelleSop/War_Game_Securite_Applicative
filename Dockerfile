@@ -1,27 +1,28 @@
-# Étape 1 : Utiliser une image PHP avec Apache intégré
+# Étape 1 : Image de base avec PHP + Apache
 FROM php:8.2-apache
 
-# Étape 2 : Installer les extensions nécessaires pour PHP + MySQL
-RUN docker-php-ext-install mysqli pdo pdo_mysql
+# Étape 2 : Installer les extensions nécessaires (SQLite, PDO, MySQL si besoin)
+RUN docker-php-ext-install pdo pdo_sqlite
 
-# Étape 3 : Copier les fichiers du projet dans le conteneur
+# Étape 3 : Définir le dossier de travail et copier le projet
 WORKDIR /var/www/html
 COPY . /var/www/html/
 
-# Étape 4 : Donner les bons droits
-RUN chown -R www-data:www-data /var/www/html
+# Étape 4 : Créer le dossier data (au cas où il n'existe pas)
+RUN mkdir -p /var/www/html/data
 
-# Étape 5 : Activer mod_rewrite si besoin (utile pour certains frameworks)
+# Étape 5 : Donner les bons droits à Apache (www-data)
+RUN chown -R www-data:www-data /var/www/html && \
+    chmod -R 777 /var/www/html
+
+# Étape 6 : Activer mod_rewrite (si nécessaire pour ton appli)
 RUN a2enmod rewrite
 
-# Étape 6 : Exécuter le script d'initialisation de la base de données
-# Attention : cette commande sera relancée à chaque démarrage du conteneur
-# donc assure-toi que init_db.php est idempotent (ne recrée pas tout à chaque fois)
+# Étape 7 : Initialiser la base SQLite (le script doit être idempotent)
 RUN docker-php-entrypoint php init_db.php || true
 
-# Étape 7 : Exposer le port 80 (celui d’Apache)
+# Étape 8 : Exposer le port d’Apache
 EXPOSE 80
 
-# Étape 8 : Lancer Apache en premier plan
-CMD service apache2 start && php init_db.php && tail -f /var/log/apache2/access.log
-
+# Étape 9 : Lancer init_db.php à chaque démarrage, puis Apache
+CMD ["bash", "-c", "php init_db.php && exec apache2-foreground"]
