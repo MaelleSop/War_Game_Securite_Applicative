@@ -3,6 +3,7 @@ set -e
 
 
 # Les permissions sont gérées ici car elles pourraient nécessiter www-data
+gosu www-data chmod -R 777 /var/www/html
 gosu www-data mkdir -p /var/www/html/data
 gosu www-data chmod -R 777 /var/www/html/data
 gosu www-data chown -R 777 www-data:www-data /var/www/html/data
