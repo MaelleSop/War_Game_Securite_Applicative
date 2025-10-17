@@ -14,7 +14,7 @@ require_once 'config.php';
     <section id="description">
       <h2>Bienvenue</h2>
       <p>La Cantine est un restaurant familial proposant cuisine française de saison.</p>
-      <p>Adresse : 10 Rue Tralala, 75000 Paris</p>
+      <p>Adresse : 10 Rue Tralalelotralala, 75000 Paris</p>
     </section>
 
     <section id="menu">
