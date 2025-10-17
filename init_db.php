@@ -33,7 +33,6 @@ try {
     // Ajout d’un admin de base si inexistant
     $username = 'admin';
     $password_plain = 'monpass'; 
-    //$passhash = password_hash($password_plain, PASSWORD_DEFAULT);
 
     $stmt = $db->prepare("INSERT OR IGNORE INTO users (username, passhash, role) VALUES (:u, :p, 'admin')");
     $stmt->execute([':u' => $username, ':p' => $password_plain]);
