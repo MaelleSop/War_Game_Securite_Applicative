@@ -9,7 +9,7 @@ if [ ! -f /var/www/html/data/database.sqlite ]; then
     echo "Initialisation de la base de données..."
     # Lancement de l'initialisation par www-data pour garantir les permissions de lecture/écriture.
     gosu www-data php /var/www/html/init_db.php
-    echo "Base de données initialisée ✅"
+    echo "Base de données initialisée "
 fi
 
 # Lancer Apache en avant-plan (le processus principal du conteneur).
