@@ -1,7 +1,10 @@
 # La Cantine
 War Game est un projet dans le cadre du développement sécurisé dans les applications Web.
+Cette application Web est une application très basique d'un restaurant volontairement vulnérable.
+A  utiliser seulement de manière isolée.
 
-L'application Web est une application très basique d'un restaurant.
+## Fonctionnalités 
+L'application Web de La Cantine vous permet d'avoir le menu du jour ainsi que quelques informations sur le restaurant. Il est aussi possible d'ajouter un avis au restaurant, avec la possibilité de mettre une photo et de voir les avis précédents. Les photos peuvent être chargées depuis l'appareil ou importer depuis une URL. L'administrateur de l'application web a aussi la possibilité de se connecter et d'observer tout les avis postés sur le site.
 
 ## Architecture & technologies
 
@@ -30,8 +33,7 @@ L'application est entièrement compilée pour être utilisée avec Docker en un 
 ## Utilisation
 L'application est accessible à l'adresse suivante : 
 
-## Fonctionnalités 
-L'application Web de La Cantine vous permet d'avoir le menu du jour ainsi que quelques informations sur le restaurant. Il est aussi possible d'ajouter un avis au restaurant, avec la possibilité de mettre une photo et de voir les avis précédents. Les photos peuvent être chargées depuis l'appareil ou importer depuis une URL. L'administrateur de l'application web a aussi la possibilité de se connecter et d'observer tout les avis postés sur le site.
+
 
 
 
