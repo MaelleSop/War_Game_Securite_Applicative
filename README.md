@@ -6,12 +6,19 @@ L'application Web est une application très basique d'un restaurant.
 ## Architecture & technologies
 
 Serveur HTTP : Apache
+
 Langage : PHP 8.1
+
 BDD : SQLite
+
 Front : HTML / CSS
+
 Orchestration locale : Docker + docker-compose
+
 Outils de dev : Visual Studio Code
+
 Volumes : code source monté en volume, volume persistant pour la base de données
+
 Port exposé par défaut : 8080:80
 
 ## Récupération de l'image Docker
