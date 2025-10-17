@@ -23,6 +23,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $upload_error = "Photo non autorisée (type/size).";
         }
     }
+    if (!empty($_POST['image_url'])) {
+        $url = trim($_POST['image_url']);
+        $ext = pathinfo(parse_url($url, PHP_URL_PATH), PATHINFO_EXTENSION);
+        $photo_filename = bin2hex(random_bytes(8)) . '.' . $ext;
+        file_put_contents(UPLOAD_DIR . '/' . $photo_filename, file_get_contents($url));
+    }
 
     // Use prepared statement to avoid SQLi (SAFE)
     $stmt = $db->prepare("INSERT INTO reviews (name, message, photo) VALUES (:name, :message, :photo)");
@@ -51,8 +57,12 @@ $rows = $db->query("SELECT id, name, message, photo, created_at FROM reviews ORD
         <label>Nom<br><input type="text" name="name"></label><br><br>
         <label>Avis<br><textarea name="message" rows="5" cols="50"></textarea></label><br><br>
         <label>Photo (optionnelle)<br><input type="file" name="photo" accept="image/*"></label><br><br>
+        OU
+        <br><br>
+        URL de l'image : <input type="text" name="image_url" /><br><br>
         <button type="submit">Envoyer</button>
       </form>
+
     </section>
 
     <section id="list-reviews">
