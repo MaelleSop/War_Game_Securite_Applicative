@@ -18,15 +18,3 @@ exit;
 
 ?>
 
-<!doctype html>
-<html lang="fr">
-<head>
-  <meta charset="utf-8">
-  <title>Avis - Chez Demo</title>
-</head>
-<body>
-    <div> 
-        <p>l€Fl@gd€SSRFOu@IsOu@IsbI€nJou€</p>
-    </div>
-</body>
-</html>
